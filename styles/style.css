@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@600&display=swap');
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Red Hat Text',sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(234, 17%, 12%);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+main {
+    flex:70%;
+    background-image: url(/images/bg-stars.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    padding-top:10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.display-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.counters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.counters>div>div {
+    width: 70px;
+    height: 60px;
+    border: 2px solid red;
+    color: hsl(345, 95%, 68%);
+    font-size: 60px;
+    padding: 10px;
+}
+
+footer {
+    flex:30%;
+    background-image: url(/images/pattern-hills.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap:50px;
+}
+.social-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px;
+    margin-top:20px;
+
+}
+
+.social-links>div {
+    margin-right: 20px;
+}
+
+footer>div>img>:hover {
+    background-color: hsl(345, 95%, 68%);
+}
+
+h1 {
+    font-size:35px;
+    color: hsl(0, 0%, 100%);
+    word-spacing:10px;
+    letter-spacing:2px;
+    margin-bottom: 80px;
+    text-transform: uppercase;
+    text-align: center;
+}
+/* Media Queries */
+
+@media screen and (max-width:590px){
+    h1 {
+        font-size:30px;
+        color: hsl(0, 0%, 100%);
+        word-spacing:8px;
+        letter-spacing:1px;
+        margin-bottom: 80px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    footer {
+        flex:30%;
+        background-image: url(/images/pattern-hills.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        min-width: 100%;
+        display: flex;
+        height:fit-content;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        gap:40px;
+    }
+}
+
+
+/* Flip card styles */
+
+
+.flip-clock {
+    text-align: center;
+    perspective:revert;
+    color: hsl(0, 0%, 80%);
+    text-transform: uppercase;
+   
+}
+
+.flip-clock *,
+.flip-clock *:before,
+.flip-clock *:after {
+    box-sizing: border-box;
+}
+
+.flip-clock__piece {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.flip-clock__slot {
+    font-size:2vw;   
+}
+
+.card {
+    display: block;
+    position: relative;
+    padding-bottom: 0.72em;
+    font-size:9vw;
+    line-height: 0.95;
+    margin-bottom:25px;
+}
+
+.card__top,
+.card__bottom,
+.card__back::before,
+.card__back::after {
+    display: block;
+    height: 0.72em;
+    color: hsl(345, 95%, 68%);
+    background: hsl(236, 21%, 26%);
+    padding: 0.25em 0.25em;
+    border-radius: 0.15em 0.15em 0.1em 0.1em;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    width: 1.6em;
+    transform: translateZ(0);
+    box-shadow: 2px 2px  5px black;
+    overflow: hidden;
+}
+
+.card__bottom {
+    color: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 0; 
+    border-top: solid 1px #000;
+    background: hsl(236, 21%, 26%);
+    color: hsl(345, 95%, 68%);
+    border-radius: 0.15em 0.15em 0.1em 0.1em;
+    /* border-radius: 1rem 1rem 0.15em 0.15em; */
+    pointer-events: none;
+    overflow: hidden;
+   
+}
+
+.card__bottom::after {
+    display: block;
+    margin-top: -0.72em;
+    
+}
+
+.card__back::before,
+.card__bottom::after {
+    content: attr(data-value);
+}
+
+.card__back {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0%;
+    pointer-events: none;
+}
+
+.card__back::before {
+    position: relative;
+    z-index: -1;
+    overflow: hidden;
+}
+
+
+.flip .card__back::before {
+    -webkit-animation: flipTop 0.3s cubic-bezier(0.37, 0.01, 0.94, 0.35);
+    animation: flipTop 0.3s cubic-bezier(0.37, 0.01, 0.94, 0.35);
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    transform-origin: center bottom;
+}
+
+.flip .card__back .card__bottom {
+    transform-origin: center top;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: flipBottom 0.6s cubic-bezier(0.15, 0.45, 0.28, 1);
+    animation: flipBottom 0.6s cubic-bezier(0.15, 0.45, 0.28, 1);
+}
+
+@-webkit-keyframes flipTop {
+    0% {
+        transform: rotateX(0deg);
+        z-index: 2;
+    }
+
+    0%,
+    99% {
+        opacity: 0.99;
+    }
+
+    100% {
+        transform: rotateX(-90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes flipTop {
+    0% {
+        transform: rotateX(0deg);
+        z-index: 2;
+    }
+
+    0%,
+    99% {
+        opacity: 0.99;
+    }
+
+    100% {
+        transform: rotateX(-90deg);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes flipBottom {
+
+    0%,
+    50% {
+        z-index: -1;
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+
+    51% {
+        opacity: 0.99;
+    }
+
+    100% {
+        opacity: 0.99;
+        transform: rotateX(0deg);
+        z-index: 5;
+    }
+}
+
+@keyframes flipBottom {
+
+    0%,
+    50% {
+        z-index: -1;
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+
+    51% {
+        opacity: 0.99;
+    }
+
+    100% {
+        opacity: 0.99;
+        transform: rotateX(0deg);
+        z-index: 5;
+    }
+}
